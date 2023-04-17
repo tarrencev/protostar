@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-PROTOSTAR_REPO="https://github.com/software-mansion/protostar"
+PROTOSTAR_REPO="https://github.com/tarrencev/protostar"
 
 main() {
     local version_arg=$1
