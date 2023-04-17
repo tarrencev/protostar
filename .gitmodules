@@ -1,3 +1,4 @@
 [submodule "cairo"]
 	path = cairo
-	url = https://github.com/software-mansion-labs/cairo
+	url = https://github.com/tarrencev/cairo
+	branch = dojo2
