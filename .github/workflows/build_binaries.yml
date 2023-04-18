@@ -48,6 +48,8 @@ jobs:
   publish:
     runs-on: ubuntu-20.04
     needs: [build]
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v2
@@ -57,19 +59,15 @@ jobs:
       - name: Upload macOS binary to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/protostar-macOS/protostar.tar.gz
           asset_name: protostar-macOS.tar.gz
-          tag: ${{ github.ref }}
           overwrite: true
           prerelease: ${{ endsWith(github.ref, 'pre-release') }}
 
       - name: Upload Linux binary to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/protostar-Linux/protostar.tar.gz
           asset_name: protostar-Linux.tar.gz
-          tag: ${{ github.ref }}
           overwrite: true
           prerelease: ${{ endsWith(github.ref, 'pre-release') }}
